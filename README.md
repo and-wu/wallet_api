@@ -33,7 +33,7 @@ REST API для управления электронными кошелькам
 ### 1. Клонирование репозитория
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/and-wu/wallet_api>
 cd wallet_api
 ```
 
