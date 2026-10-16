@@ -37,8 +37,6 @@ git clone <https://github.com/and-wu/wallet_api>
 cd wallet_api
 ```
 
-Замените `<repository-url>` на URL репозитория.
-
 ### 2. Запуск приложения
 
 ```bash
