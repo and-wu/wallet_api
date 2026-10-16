@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 from app.api.wallet import router as wallet_router
 
 app = FastAPI(
@@ -7,8 +8,10 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
 @app.get("/")
 async def root():
     return {"message": "Wallet API is running!"}
+
 
 app.include_router(wallet_router)

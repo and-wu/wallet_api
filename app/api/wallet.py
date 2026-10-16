@@ -1,4 +1,3 @@
-
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -14,9 +13,10 @@ from app.services.wallet import (
 
 router = APIRouter(prefix="/api/v1/wallets", tags=["Wallets"])
 
+
 @router.post("", response_model=WalletResponse, status_code=status.HTTP_201_CREATED)
 async def create_wallet(
-    session: AsyncSession = Depends(get_session),
+    session: AsyncSession = Depends(get_session),  # noqa: B008
 ):
     service = WalletService(session)
     wallet = await service.create_wallet()
@@ -26,10 +26,11 @@ async def create_wallet(
         balance=wallet.balance,
     )
 
+
 @router.get("/{wallet_id}", response_model=WalletResponse)
 async def get_wallet(
     wallet_id: UUID,
-    session: AsyncSession = Depends(get_session),
+    session: AsyncSession = Depends(get_session),  # noqa: B008
 ):
     service = WalletService(session)
 
@@ -48,7 +49,7 @@ async def get_wallet(
 async def process_wallet_operation(
     wallet_id: UUID,
     operation: WalletOperationRequest,
-    session: AsyncSession = Depends(get_session),
+    session: AsyncSession = Depends(get_session),  # noqa: B008
 ):
     service = WalletService(session)
 

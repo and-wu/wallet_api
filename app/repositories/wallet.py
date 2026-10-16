@@ -27,12 +27,10 @@ class WalletRepository:
         return result.scalar_one_or_none()
 
     async def get_by_id_for_update(
-            self,
-            wallet_id: UUID,
+        self,
+        wallet_id: UUID,
     ) -> Wallet | None:
         result = await self.session.execute(
-            select(Wallet)
-            .where(Wallet.id == wallet_id)
-            .with_for_update()
+            select(Wallet).where(Wallet.id == wallet_id).with_for_update()
         )
         return result.scalar_one_or_none()
